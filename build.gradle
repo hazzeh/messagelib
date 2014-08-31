@@ -11,10 +11,13 @@ dependencies {
 test{
     outputs.upToDateWhen { false }
     exclude '**/*IT.class'
+    ignoreFailures=true
 }
 
 task intTest(type:Test) {
   outputs.upToDateWhen { false }
+  ignoreFailures=true
+
   if(project.hasProperty('libdir')){
     systemProperty "java.library.path", libdir
   }
