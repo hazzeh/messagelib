@@ -14,6 +14,7 @@ test{
 }
 
 task intTest(type:Test) {
+  outputs.upToDateWhen { false }
   if(project.hasProperty('libdir')){
     systemProperty "java.library.path", libdir
   }
