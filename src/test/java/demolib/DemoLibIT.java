@@ -25,4 +25,11 @@ public class DemoLibIT {
 		String messageQuoted = demoLib.getMessageQuoted(10);
 		assertEquals("do_or_do_not_there_is_no_try", messageQuoted);
 	}
+
+	@Test
+	public void getMessageQuotedShouldQuoteMessageNo20() throws Exception{
+		DemoLib demoLib = new DemoLib();
+		String messageQuoted = demoLib.getMessageQuoted(20);
+		assertEquals("judge_me_by_my_size_do_you", messageQuoted);
+	}
 }
