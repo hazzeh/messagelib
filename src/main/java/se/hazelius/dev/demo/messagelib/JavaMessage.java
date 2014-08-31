@@ -34,6 +34,9 @@ public class JavaMessage implements MessageIF {
 	@Override
 	public String getMessageQuoted(long token) {
 		String message = messageMap.get(Long.valueOf(token));
+		if (message == null){
+			message="No coffee for you!";
+		}
 		String quotedMessage=message.toLowerCase();
 		return createQuotedStringFromMessage(quotedMessage);
 	}
