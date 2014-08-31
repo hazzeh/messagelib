@@ -1,19 +1,47 @@
 package se.hazelius.dev.demo.messagelib;
 
-public class JavaMessage implements MessageIF {
+import java.util.HashMap;
+import java.util.Map;
 
+public class JavaMessage implements MessageIF {
+	Map<Long,String> messageMap = new HashMap<Long, String>();
+
+	public JavaMessage() {
+		messageMap.put(Long.valueOf(10),"Should I kill myself, or have a cup of coffee?");
+		messageMap.put(Long.valueOf(20),"Coffee is a way of stealing time that should by rights belong to your older self.");
+		messageMap.put(Long.valueOf(30), "Coffee first. Schemes later.");
+	}
 	@Override
 	public long getToken(long seed) {
-		return 0;
+		if (seed<=10)
+			return 10;
+		else if (seed <= 20)
+			return 20;
+		else if (seed <= 30)
+			return 30;
+		else
+		  return 40;
 	}
 	@Override
 	public String getMessage(long token) {
-		return "Hello World";
+		String string = messageMap.get(Long.valueOf(token));
+		if (string != null){
+			return string;
+		}else{
+			return "No coffee for you!";
+		}
 	}
 	@Override
 	public String getMessageQuoted(long token) {
-		// TODO Auto-generated method stub
-		return ""+token;
+		String message = messageMap.get(Long.valueOf(token));
+		String quotedMessage=message.toLowerCase();
+		return createQuotedStringFromMessage(quotedMessage);
+	}
+
+	private String createQuotedStringFromMessage(String message){
+		message=message.replaceAll("[,\\.\\!\\?]", "");
+		message=message.replaceAll(" ", "_");
+		return message;
 	}
 
 }
