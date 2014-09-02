@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JavaMessage implements MessageIF {
+	public static final String LIBVERSION = "1.0.0";
 	Map<Long,String> messageMap = new HashMap<Long, String>();
 
 	public JavaMessage() {
@@ -45,6 +46,10 @@ public class JavaMessage implements MessageIF {
 		message=message.replaceAll("[,\\.\\!\\?]", "");
 		message=message.replaceAll(" ", "_");
 		return message;
+	}
+	@Override
+	public String getVersion() {
+		return LIBVERSION;
 	}
 
 }

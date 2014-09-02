@@ -11,5 +11,7 @@ public class DemoLib implements MessageIF {
 	public native String getMessage(long token);
 	@Override
 	public native String getMessageQuoted(long token);
+	@Override
+	public native String getVersion();
 
 }

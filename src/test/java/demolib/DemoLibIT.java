@@ -46,4 +46,10 @@ public class DemoLibIT {
 		long token = demoLib.getToken(-5);
 		assertEquals(10, token);
 	}
+	@Test
+	public void getVersionShouldBe110() throws Exception{
+		DemoLib demoLib = new DemoLib();
+		String version = demoLib.getVersion();
+		assertEquals("1.1.0", version);
+	}
 }

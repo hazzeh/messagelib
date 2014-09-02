@@ -46,4 +46,10 @@ public class MessageLibTest {
 		String quotedString="should_i_kill_myself_or_have_a_cup_of_coffee";
 		assertEquals(quotedString, message);
 	}
+	@Test
+	public void getVersionShouldReturn100(){
+		JavaMessage messagelib = new JavaMessage();
+		String version = messagelib.getVersion();
+		assertEquals("1.0.0", version);
+	}
 }
