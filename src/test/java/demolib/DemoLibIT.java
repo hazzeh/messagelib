@@ -39,3 +39,11 @@ public class DemoLibIT {
 		long token = demoLib.getToken(5);
 		assertEquals(10, token);
 	}
+
+	@Test
+	public void getTokenShouldReturn10IfSeedNegative5() throws Exception {
+		DemoLib demoLib = new DemoLib();
+		long token = demoLib.getToken(-5);
+		assertEquals(10, token);
+	}
+}
