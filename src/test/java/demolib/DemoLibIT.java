@@ -32,4 +32,10 @@ public class DemoLibIT {
 		String messageQuoted = demoLib.getMessageQuoted(20);
 		assertEquals("judge_me_by_my_size_do_you", messageQuoted);
 	}
-}
+
+	@Test
+	public void getTokenShouldReturn10IfSeed5() throws Exception {
+		DemoLib demoLib = new DemoLib();
+		long token = demoLib.getToken(5);
+		assertEquals(10, token);
+	}
